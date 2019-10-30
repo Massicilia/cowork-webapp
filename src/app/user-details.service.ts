@@ -12,5 +12,5 @@ export class UserDetailsService {
   getUser() {
     const url = 'http://localhost:8080/user/' + this.uuid;
     return this.http.get(url);
-  }
+  }//testgithub
 }
