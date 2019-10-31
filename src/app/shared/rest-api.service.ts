@@ -24,6 +24,7 @@ export class RestApiService {
 
   // get users list
   getUsers(): Observable<User> {
+    console.log('GETUSERS RESTAPI');
     return this.http.get<User>(this.apiURL + '/user/users')
       .pipe(
         retry(1),
@@ -52,6 +53,15 @@ export class RestApiService {
   // authentification
   auth(auth): Observable<AuthentificationComponent> {
     return this.http.put<AuthentificationComponent>(this.apiURL + '/user/', JSON.stringify(auth), this.httpOptions)
+      .pipe(
+        retry(1),
+        catchError(this.handleError)
+      )
+  }
+
+  // delete user
+  deleteUser(id): Observable<User> {
+    return this.http.delete<User>(this.apiURL + '/user/delete' + id, this.httpOptions)
       .pipe(
         retry(1),
         catchError(this.handleError)

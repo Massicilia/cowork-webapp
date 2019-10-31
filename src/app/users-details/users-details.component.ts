@@ -1,5 +1,5 @@
-import { UsersDetailsService } from './../users-details.service';
 import { Component, OnInit } from '@angular/core';
+import { RestApiService } from '../shared/rest-api.service';
 
 @Component({
   selector: 'app-users-details',
@@ -8,14 +8,29 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UsersDetailsComponent implements OnInit {
 
-  users$: object;
-  constructor(private data: UsersDetailsService) { }
-
+  User: any = [];
+  constructor(
+    public restApi: RestApiService
+  ) { }
 
   ngOnInit() {
-    this.data.getUsers().subscribe(
-      data => this.users$ = data
-    );
+    this.loadUsers()
   }
 
+  // Get users list
+  loadUsers() {
+    return this.restApi.getUsers().subscribe((data: {}) => {
+      console.log('LOADUSERS TS ' + data);
+      this.User = data;
+    })
+  }
+
+  // delete user
+  deleteUser(id) {
+    if (window.confirm('Are you sure, you want to delete?')){
+      this.restApi.deleteUser(id).subscribe(data => {
+        this.loadUsers()
+      })
+    }
+  }
 }

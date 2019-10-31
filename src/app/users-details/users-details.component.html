@@ -1,13 +1,43 @@
-<h2>User</h2>
-<ul>
-  <li *ngFor="let user of users$" >
-    {{user.name}}
-    {{user.surname}}
-    {{user.mail}}
-    {{user.dateEndSubscription}}
-    {{user.subscription}}
-    {{user.identifiant}}
-    {{user.type}}
+<div class="container custom-container-2">
 
-  </li>
-</ul>
+  <div class="no-data text-center" *ngIf="User.length == 0">
+    <p>There is no users!</p>
+    <button class="btn btn-outline-primary" routerLink="/user/insert">Add User</button>
+  </div>
+
+
+  <div *ngIf="User.length !== 0">
+    <h3 class="mb-3 text-center">Users List</h3>
+
+    <div class="col-md-12">
+      <table class="table table-bordered">
+        <thead>
+        <tr>
+          <th scope="col">Identifiant</th>
+          <th scope="col">Name</th>
+          <th scope="col">Surname</th>
+          <th scope="col">Email</th>
+          <th scope="col">End of the subscription</th>
+          <th scope="col">Type</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let user of User">
+          <td>{{user.id}}</td>
+          <td>{{user.name}}</td>
+          <td>{{user.surname}}</td>
+          <td>{{user.mail}}</td>
+          <td>{{user.endDateSubscription}}</td>
+          <td>{{user.type}}</td>
+          <td>
+            <span class="edit" routerLink="user/update/{{user.id}}">Edit</span>
+            <span class="delete" (click)="deleteUser(user.id)">Delete</span>
+          </td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+
+  </div>
+
+</div>
