@@ -3,13 +3,9 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "cowork-app": {
+    "corwork-webapp": {
       "projectType": "application",
-      "schematics": {
-        "@schematics/angular:component": {
-          "style": "scss"
-        }
-      },
+      "schematics": {},
       "root": "",
       "sourceRoot": "src",
       "prefix": "app",
@@ -17,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/cowork-app",
+            "outputPath": "dist/corwork-webapp",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -28,10 +24,9 @@
               "src/assets"
             ],
             "styles": [
-              "node_modules/bootstrap/dist/css/bootstrap.css",
-              "src/styles.scss"
+              "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
+              "src/styles.css"
             ],
-
             "scripts": []
           },
           "configurations": {
@@ -69,18 +64,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "cowork-app:build"
+            "browserTarget": "corwork-webapp:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "cowork-app:build:production"
+              "browserTarget": "corwork-webapp:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "cowork-app:build"
+            "browserTarget": "corwork-webapp:build"
           }
         },
         "test": {
@@ -95,7 +90,8 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.scss"
+              "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
+              "src/styles.css"
             ],
             "scripts": []
           }
@@ -117,15 +113,16 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "cowork-app:serve"
+            "devServerTarget": "corwork-webapp:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "cowork-app:serve:production"
+              "devServerTarget": "corwork-webapp:serve:production"
             }
           }
         }
       }
-    }},
-  "defaultProject": "cowork-app"
+    }
+  },
+  "defaultProject": "corwork-webapp"
 }

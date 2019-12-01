@@ -1,9 +1,11 @@
 export class User {
-  id: string;
+  identifiant: string;
+  password: string;
   name: string;
   surname: string;
   mail: string;
   subscription: number;
-  endDateSubscription: string;
+  dateEndSubscriptionString: string;
   type: string;
+  uuidSpace:string;
 }

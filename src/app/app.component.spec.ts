@@ -20,16 +20,16 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  it(`should have as title 'cowork-app'`, () => {
+  it(`should have as title 'corwork-webapp'`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.debugElement.componentInstance;
-    expect(app.title).toEqual('cowork-app');
+    expect(app.title).toEqual('corwork-webapp');
   });
 
   it('should render title', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.debugElement.nativeElement;
-    expect(compiled.querySelector('.content span').textContent).toContain('cowork-app app is running!');
+    expect(compiled.querySelector('.content span').textContent).toContain('corwork-webapp app is running!');
   });
 });
