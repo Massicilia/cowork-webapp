@@ -16,7 +16,7 @@ export class AuthentificationService {
       return true;
     } else {
       return false;
-    }
+    }//test git
   }
 
   isUserLoggedIn() {
