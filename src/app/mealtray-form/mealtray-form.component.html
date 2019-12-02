@@ -1,0 +1,40 @@
+<div class="card my-5">
+  <div class="card-body">
+    <form (ngSubmit)="onSubmit()" #mealtrayForm="ngForm">
+      <div class="form-group">
+        <label for="name">Name</label>
+        <input type="text" [(ngModel)]="mealtray.name"
+               class="form-control"
+               id="name"
+               name="name"
+               placeholder="Enter your name"
+               required #name="ngModel">
+      </div>
+      <div [hidden]="!name.pristine" class="alert alert-danger">Name is required</div>
+      <div class="form-group">
+        <label for="surname">Surname</label>
+        <input type="text" [(ngModel)]="mealtray.surname"
+               class="form-control"
+               id="surname"
+               name="surname"
+               placeholder="Enter your surname"
+               required #surname="ngModel">
+      </div>
+      <div [hidden]="!name.pristine" class="alert alert-danger">Surname is required</div>
+      <div class="form-group">
+
+        <label for="date">For </label>
+        <mat-datepicker #date></mat-datepicker>
+        <mat-datepicker-toggle [for]="date" name="date"></mat-datepicker-toggle>
+        <input [matDatepicker]="date"
+               [(ngModel)]="mealtray.date"
+               class="form-control"
+               id="date"
+               name="date">
+      </div>
+      <div [hidden]="!name.pristine" class="alert alert-danger">Date is required</div>
+      <button type="submit" [disabled]="!mealtrayForm.form.valid"
+              class="btn btn-info">Submit</button>
+    </form>
+  </div>
+</div>

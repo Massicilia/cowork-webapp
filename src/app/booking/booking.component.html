@@ -1,0 +1,69 @@
+<div class="card my-5">
+  <div class="card-body">
+    <h2>Book a room</h2>
+    <hr/>
+    <form (ngSubmit)="onSubmit()" #bookingForm="ngForm">
+      <div class="form-group">
+        <label for="name">Name</label>
+        <input type="text" [(ngModel)]="booking.nameUser"
+               class="form-control"
+               id="name"
+               name="name"
+               placeholder="Enter your name"
+               required #name="ngModel">
+      </div>
+      <div [hidden]="!name.pristine" class="alert alert-danger">Name is required</div>
+      <div class="form-group">
+        <label for="surname">Surname</label>
+        <input type="text" [(ngModel)]="booking.surnameUser"
+               class="form-control"
+               id="surname"
+               name="surname"
+               placeholder="Enter your surname"
+               required #surname="ngModel">
+      </div>
+      <div class="form-group">
+        <label for="type">The type of the room</label>
+        <select [(ngModel)]="booking.type"
+                name="type"
+                class="form-control"
+                id="type">
+          <option value = "privateroom">Private room</option>
+          <option value = "callroom">Call room</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="space">The space</label>
+        <input type="text" [(ngModel)]="booking.space"
+                name="space"
+                class="form-control"
+                id="space">
+
+      </div>
+      <div class="form-group">
+
+        <label for="dateStart">From </label>
+        <mat-datepicker #dateStart></mat-datepicker>
+        <mat-datepicker-toggle [for]="dateStart" name="datestart"></mat-datepicker-toggle>
+        <input [matDatepicker]="dateStart"
+               [(ngModel)]="booking.dateStart"
+               class="form-control"
+               id="dateStart"
+               name="dateStart">
+      </div>
+      <div class="form-group">
+
+        <label for="dateEnd">To </label>
+        <mat-datepicker #dateEnd></mat-datepicker>
+        <mat-datepicker-toggle [for]="dateEnd" name="dateend"></mat-datepicker-toggle>
+        <input [matDatepicker]="dateEnd"
+               [(ngModel)]="booking.dateEnd"
+               class="form-control"
+               id="dateEnd"
+               name="dateEnd">
+      </div>
+      <button type="submit" [disabled]="!bookingForm.form.valid"
+              class="btn btn-info">Submit</button>
+    </form>
+  </div>
+</div>

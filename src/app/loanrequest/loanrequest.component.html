@@ -1,0 +1,67 @@
+<div class="card my-5">
+  <div class="card-body">
+    <h2>ASK FOR A LOAN</h2>
+    <hr/>
+    <form (ngSubmit)="onSubmit()" #loanrequestForm="ngForm">
+      <div class="form-group">
+        <label for="name">Name</label>
+        <input type="text" [(ngModel)]="loanrequest.name"
+               class="form-control"
+               id="name"
+               name="name"
+               placeholder="Enter your name"
+               required #name="ngModel">
+      </div>
+      <div class="form-group">
+        <label for="surname">Surname</label>
+        <input type="text" [(ngModel)]="loanrequest.surname"
+               class="form-control"
+               id="surname"
+               name="surname"
+               placeholder="Enter your surname"
+               required #surname="ngModel">
+      </div>
+      <div class="form-group">
+        <label for="typeEquipment">The type of the equipment</label>
+        <select [(ngModel)]="loanrequest.typeEquipment"
+                name="typeEquipment"
+                class="form-control"
+                id="typeEquipment">
+          <option value = "computer">Computer</option>
+          <option value = "printer">Printer</option>
+        </select>
+      </div>
+      <div class="form-group">
+
+        <label for="dateLoanBegin">From </label>
+        <mat-datepicker #dateLoanBegin></mat-datepicker>
+        <mat-datepicker-toggle [for]="dateLoanBegin" name="datebegin"></mat-datepicker-toggle>
+        <input [matDatepicker]="dateLoanBegin"
+               [(ngModel)]="loanrequest.dateLoanBegin"
+               class="form-control"
+               id="dateLoanBegin"
+               name="dateLoanBegin">
+      </div>
+
+      <div class="form-group">
+
+        <label for="dateLoanEnd">To </label>
+        <mat-datepicker #dateLoanEnd></mat-datepicker>
+        <mat-datepicker-toggle [for]="dateLoanEnd" name="dateend"></mat-datepicker-toggle>
+        <input [matDatepicker]="dateLoanEnd"
+               [(ngModel)]="loanrequest.dateLoanEnd"
+               class="form-control"
+               id="dateLoanEnd"
+               name="dateLoanEnd">
+      </div>
+
+      <button type="submit" [disabled]="!loanrequestForm.form.valid"
+              class="btn btn-info">Submit</button>
+
+    <!--  <button type="submit" (click)="addLoanrequest()" [disabled]="!loanrequestForm.form.valid"
+              class="btn btn-info">Submit</button> -->
+
+    </form>
+
+  </div>
+</div>

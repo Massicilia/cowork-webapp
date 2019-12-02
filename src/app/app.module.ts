@@ -16,8 +16,9 @@ import { DatePipe } from '@angular/common';
 import { MealtrayListComponent } from './mealtray-list/mealtray-list.component';
 import { MealtrayFormComponent } from './mealtray-form/mealtray-form.component';
 import { BookingComponent } from './booking/booking.component';
-import {MealtrayService} from "./service/mealtray.service";
-import {BookingService} from "./service/booking.service";
+import {MealtrayService} from './service/mealtray.service';
+import {BookingService} from './service/booking.service';
+import {AuthentificationService} from './service/authentification.service';
 import { AuthComponent } from './auth/auth.component';
 import { LogoutComponent } from './logout/logout.component';
 import { HearderComponent } from './hearder/hearder.component';
@@ -43,7 +44,7 @@ import { HearderComponent } from './hearder/hearder.component';
     MatDatepickerModule,
     MatNativeDateModule
   ],
-  providers: [UserService, LoanrequestService, MatDatepickerModule, DatePipe, BookingService, MealtrayService,
+  providers: [UserService, LoanrequestService, MatDatepickerModule, DatePipe, BookingService, MealtrayService, AuthentificationService,
     {provide: MAT_DATE_LOCALE, useValue: MY_FORMAT}],
   bootstrap: [AppComponent]
 })

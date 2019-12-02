@@ -6,22 +6,22 @@
           <h2 class="card-title text-center text-white py-2">{{ title }}</h2>
           <ul class="text-center list-inline py-3">
             <li class="list-inline-item">
-              <a *ngIf="loginService.isUserLoggedIn()" routerLink="/loanrequest" class="btn btn-info">Ask for a loan</a>
+              <a routerLink="/loanrequest" class="btn btn-info">Ask for a loan</a>
             </li>
             <li class="list-inline-item">
-              <a *ngIf="loginService.isUserLoggedIn()" routerLink="/mealtrayorder" class="btn btn-info">Ask for a meal tray</a>
+              <a routerLink="/mealtrayorder" class="btn btn-info">Ask for a meal tray</a>
             </li>
             <li class="list-inline-item">
-              <a *ngIf="loginService.isUserLoggedIn()" routerLink="/book" class="btn btn-info">Book a room</a>
+              <a routerLink="/book" class="btn btn-info">Book a room</a>
             </li>
             <li class="list-inline-item">
-              <a *ngIf="loginService.isUserLoggedIn()" routerLink="/mealtrayorder/all" class="btn btn-info">Meal trays of the date</a>
+              <a routerLink="/mealtrayorder/all" class="btn btn-info">Meal trays of the date</a>
             </li>
             <li class="list-inline-item">
-              <a *ngIf="loginService.isUserLoggedIn()" routerLink="/users" class="btn btn-info">List Users</a>
+              <a routerLink="/users" class="btn btn-info">List Users</a>
             </li>
             <li class="list-inline-item">
-              <a *ngIf="loginService.isUserLoggedIn()" routerLink="/adduser" class="btn btn-info">Add User</a>
+              <a routerLink="/adduser" class="btn btn-info">Add User</a>
             </li>
           </ul>
         </div>
@@ -30,3 +30,4 @@
     </div>
   </div>
 </div>
+<!-- *ngIf="loginService.isUserLoggedIn()" -->

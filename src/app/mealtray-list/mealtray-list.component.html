@@ -1,0 +1,20 @@
+<div class="card my-5">
+  <div class="card-body">
+    <table class="table table-bordered table-striped">
+      <thead class="thead-dark">
+      <tr>
+        <th scope="col">Name</th>
+        <th scope="col">Surname</th>
+        <th scope="col">Date of the order</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let mealtray of mealtrays">
+        <td>{{ mealtray.name }}</td>
+        <td>{{ mealtray.surname }}</td>
+        <td>{{ mealtray.date }}</td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

@@ -1,0 +1,24 @@
+<div class="card my-5">
+  <div class="card-body">
+    <table class="table table-bordered table-striped">
+      <thead class="thead-dark">
+      <tr>
+        <th scope="col">Name</th>
+        <th scope="col">Surname</th>
+        <th scope="col">Type</th>
+        <th scope="col">Date of the end of subscription</th>
+        <th scope="col">Email</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let user of users">
+        <td>{{ user.name }}</td>
+        <td>{{ user.surname }}</td>
+        <td>{{ user.type }}</td>
+        <td>{{ user.endDateSubscription }}</td>
+        <td><a href="mailto:{{ user.mail }}">{{ user.mail }}</a></td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
